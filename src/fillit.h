@@ -6,7 +6,7 @@
 /*   By: rwright <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 13:12:30 by rwright           #+#    #+#             */
-/*   Updated: 2019/02/19 15:22:53 by rwright          ###   ########.fr       */
+/*   Updated: 2019/02/19 16:46:26 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,10 @@ struct s_block
 };
 
 typedef struct s_block	t_block;
+
+/*
+**	PARSE
+*/
+int		parse(char *file, t_block **blocks);
 
 #endif
