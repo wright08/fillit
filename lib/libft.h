@@ -6,7 +6,7 @@
 /*   By: rwright <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 08:18:47 by rwright           #+#    #+#             */
-/*   Updated: 2019/02/12 17:54:11 by rwright          ###   ########.fr       */
+/*   Updated: 2019/02/19 21:00:27 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,5 +108,7 @@ void	ft_lstdelone(t_list **lst, void (*del)(void *, size_t));
 void	ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list	*ft_lstnew(const void *content, size_t content_size);
+
+int		get_next_line(const int fd, char **line);
 
 #endif

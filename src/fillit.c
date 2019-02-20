@@ -6,7 +6,7 @@
 /*   By: rwright <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 15:02:24 by rwright           #+#    #+#             */
-/*   Updated: 2019/02/19 16:46:36 by rwright          ###   ########.fr       */
+/*   Updated: 2019/02/19 20:58:00 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ void	display_usage()
 
 void	fillit(char *file)
 {
-	t_block *blocks;
+	t_block	blocks[26];
+	int		count;
 
-	if (!parse(file, &blocks))
+	if (!parse(file, blocks, &count))
 		exit(EXIT_FAILURE);
-	ft_putendl("Parse successful");
+	ft_putendl("Success");
 }
 
 int		main(int argc, char **argv)
