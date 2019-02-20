@@ -1,0 +1,5 @@
+*.swp
+*.o
+tests
+obj
+fillit

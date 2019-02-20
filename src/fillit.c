@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   fillit.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rwright <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 13:12:30 by rwright           #+#    #+#             */
-/*   Updated: 2019/02/19 15:22:53 by rwright          ###   ########.fr       */
+/*   Created: 2019/02/19 15:02:24 by rwright           #+#    #+#             */
+/*   Updated: 2019/02/19 15:35:34 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "fillit.h"
 
-# include "libft.h"
-# include <stdlib.h> // Exit, malloc, free
-
-struct s_block
+void	display_usage()
 {
-	int		height;
-	int		width;
-	char	**block;
-};
+	ft_putendl_fd("usage: fillit file", 2);
+	exit(EXIT_FAILURE);
+}
 
-typedef struct s_block	t_block;
+void	fillit(char *file)
+{
+	t_block *blocks;
 
-#endif
+	if (!parse(file, blocks))
+		exit(EXIT_FAILURE);
+	ft_putendl("Parse successful");
+}
+
+int		main(int argc, char **argv)
+{
+	if (argc != 2)
+		display_usage();
+	fillit(argv[1]);
+	exit(EXIT_SUCCESS);
+}

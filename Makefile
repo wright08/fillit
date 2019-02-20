@@ -5,13 +5,13 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 CFLAGS += #-Ofast
 CFLAGS += #-g -fsanitize=address
-INC = -I fillit -I libft
+INC = -I src -I lib
 LIB = -L lib -lft
 SRC_DIR = src
 OBJ_DIR = obj
 
 SRC = \
-	   test
+	  fillit
 
 OBJ = $(patsubst %, $(OBJ_DIR)/%.o, $(SRC))
 
@@ -23,6 +23,9 @@ $(NAME): $(OBJ)
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) $(INC) -o $@ -c $< 
+
+test: $(OBJ)
+	@$(CC) $(OBJ) $(LIB) -o $(NAME)
 
 clean:
 	@rm -rf $(OBJ_DIR)
