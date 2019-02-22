@@ -6,7 +6,7 @@
 /*   By: rwright <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 13:12:30 by rwright           #+#    #+#             */
-/*   Updated: 2019/02/19 21:04:06 by rwright          ###   ########.fr       */
+/*   Updated: 2019/02/21 17:35:08 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,14 @@
 # define FILLIT_H
 
 # include "libft.h"
-# include <stdlib.h> // Exit, malloc, free
+# include <stdlib.h>
 
-struct s_block
-{
-	int		height;
-	int		width;
-	char	**block;
-};
+typedef unsigned short	t_block;
+typedef unsigned int	t_uint;
 
-typedef struct s_block	t_block;
-
-/*
-**	PARSE
-*/
-int		parse(char *file, t_block *blocks, int *count);
+void	print_board(t_byte board[][32], char square);
+void	make_board(t_byte board[][32], char square);
+void	fillit(t_block *arr, int count);
+int		parse(char *file, t_block *arr, int *count);
 
 #endif

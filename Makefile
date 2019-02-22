@@ -13,8 +13,10 @@ TEST_SRC = tests
 TEST_OBJ = tests/obj
 
 SRC = \
+	  parse\
+	  board\
 	  fillit\
-	  parse
+	  main
 
 TEST = \
 	   parse
@@ -24,16 +26,17 @@ OBJ = $(patsubst %, $(OBJ_DIR)/%.o, $(SRC))
 OBJ_TEST = $(patsubst %, $(TEST_OBJ)/%.o, $(TEST))
 
 all: $(NAME)
+	./fillit tests/ex1
 
 $(NAME): $(OBJ)
-	@$(CC) $(OBJ) $(LIB) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) $(LIB) -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) $(INC) -o $@ -c $< 
 
 test: $(NAME) $(OBJ_TEST)
-	@$(CC) $(filter-out %$(NAME).o, $(OBJ)) $(OBJ_TEST) $(LIB) -o $@
+	@$(CC) $(filter-out %main.o, $(OBJ)) $(OBJ_TEST) $(LIB) -o $@
 
 $(TEST_OBJ)/%.o: $(TEST_SRC)/%.c
 	@mkdir -p $(dir $@)
