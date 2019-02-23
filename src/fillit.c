@@ -6,7 +6,7 @@
 /*   By: rwright <rwright@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 20:03:36 by rwright           #+#    #+#             */
-/*   Updated: 2019/02/21 17:34:42 by rwright          ###   ########.fr       */
+/*   Updated: 2019/02/22 11:16:53 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		try_place(t_block block, int index, t_byte board[][32],
 	int col;
 
 	row = (row_col >> 8);
-	col = row_col % 8;
+	col = row_col % 16;
 	if (board[row + block % 16 / 4][col + block % 16 % 4] ||
 			board[row + (block >> 4) % 16 / 4][col + (block >> 4) % 16 % 4] ||
 			board[row + (block >> 8) % 16 / 4][col + (block >> 8) % 16 % 4] ||
@@ -44,7 +44,7 @@ void	unplace(t_block block, t_byte board[][32], int row, int col)
 
 int		get_unplaced(t_uint unplaced, int start)
 {
-	while (++start < 26)
+	while (++start < 27)
 		if ((1U << start) & unplaced)
 			return (start);
 	return (-1);
@@ -90,9 +90,12 @@ void	fillit(t_block *arr, int count)
 	square = -1;
 	while (++square < count)
 		unplaced = (unplaced << 1U) + 1;
-	square = count / 2 + 1;
+	square = 2;
+	while (square * square < count * 4)
+		square++;
+	square--;
 	make_board(board, square);
-	while (!recur(board, arr, square, unplaced) && square < 16)
+	while (!recur(board, arr, square, unplaced))
 	{
 		square++;
 		make_board(board, square);

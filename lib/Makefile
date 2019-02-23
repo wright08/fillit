@@ -5,8 +5,6 @@ AR = ar
 ARFLAGS = -rcs
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
-CFLAGS += #-Ofast
-CFLAGS += #-g -fsanitize=address
 OBJ_DIR = obj
 
 #	CTYPES
@@ -102,16 +100,10 @@ SRC += get_next_line
 
 OBJ = $(patsubst %, $(OBJ_DIR)/%.o, $(SRC))
 
-NC = \033[0m
-GREEN = \033[1;32m
-RED = \033[1;31m
-YELLOW = \033[1;33m
-
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(AR) $(ARFLAGS) $@ $(OBJ)
-	@echo "$(GREEN)DONE$(NC)"
 
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(dir $@)
@@ -122,6 +114,5 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "$(RED)$(NAME) removed$(NC)"
 
 re: fclean all
