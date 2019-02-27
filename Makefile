@@ -14,7 +14,7 @@ SRC = \
 
 OBJ = $(patsubst %, $(OBJ_DIR)/%.o, $(SRC))
 
-all: lib/libft.a $(NAME)
+all: | lib/libft.a $(NAME)
 
 lib/libft.a:
 	@$(MAKE) -C lib
