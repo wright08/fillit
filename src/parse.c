@@ -6,7 +6,7 @@
 /*   By: rwright <rwright@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 20:00:46 by rwright           #+#    #+#             */
-/*   Updated: 2019/02/21 18:32:40 by rwright          ###   ########.fr       */
+/*   Updated: 2019/02/27 12:06:49 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,7 @@ t_block	settle(t_block block)
 	i = -1;
 	new = 0;
 	while (++i < 4)
-	{
 		new = (new << 4) + ((block >> (4 * (3 - i))) % 16) - 4 * up - left;
-	}
 	return (new);
 }
 

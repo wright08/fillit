@@ -6,7 +6,7 @@
 /*   By: rwright <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 21:05:52 by rwright           #+#    #+#             */
-/*   Updated: 2019/02/22 17:15:58 by rwright          ###   ########.fr       */
+/*   Updated: 2019/02/27 12:10:16 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "libft.h"
 # include <stddef.h>
 
-struct	s_vector
+struct		s_vector
 {
 	int		capacity;
 	int		size;

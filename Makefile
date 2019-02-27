@@ -1,5 +1,3 @@
-#!/usr/bin/make -f
-
 NAME = fillit
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
@@ -16,7 +14,10 @@ SRC = \
 
 OBJ = $(patsubst %, $(OBJ_DIR)/%.o, $(SRC))
 
-all: $(NAME)
+all: lib/libft.a $(NAME)
+
+lib/libft.a:
+	@$(MAKE) -C lib
 
 $(NAME): $(OBJ)
 	@$(CC) $(OBJ) $(LIB) -o $(NAME)

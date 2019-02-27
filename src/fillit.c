@@ -6,7 +6,7 @@
 /*   By: rwright <rwright@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 20:03:36 by rwright           #+#    #+#             */
-/*   Updated: 2019/02/22 11:16:53 by rwright          ###   ########.fr       */
+/*   Updated: 2019/02/27 11:59:40 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,12 +93,8 @@ void	fillit(t_block *arr, int count)
 	square = 2;
 	while (square * square < count * 4)
 		square++;
-	square--;
 	make_board(board, square);
 	while (!recur(board, arr, square, unplaced))
-	{
-		square++;
-		make_board(board, square);
-	}
+		make_board(board, ++square);
 	print_board(board, square);
 }
